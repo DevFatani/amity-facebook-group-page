@@ -25,8 +25,14 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
+    baseURL: 'https://api-f1a97ad4c76e8ae94f020ea66aa66034.salla.group/admin/v2',
+    extraHTTPHeaders: {
+      // We set this header per GitHub guidelines.
+      'Accept': '*/*',
+      // Add authorization token to all requests.
+      // Assuming personal access token available in the environment.
+      'Authorization': `token 770ea2091f32ec334ec5054be198499413c4c3568f7ea5e4923d884a643d22163b9e712b2d`,
+    },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
